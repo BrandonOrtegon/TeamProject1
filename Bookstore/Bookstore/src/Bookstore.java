@@ -1,4 +1,6 @@
+//Name: Jayla Craddock, Jeffrey Ortegon, Sahima Durrani, Ryan, Bahdan
 import java.util.Scanner;
+import java.util.ArrayList; // Import the arraylist class
 
 public class Bookstore {
 	static String[] books = new String[5];
@@ -46,16 +48,15 @@ public static void bookSearch() {
     }
 }
 
-//Name: Jayla Craddock
-//Date: 9/19/25
-//Assignment: Team Assignment Part 2
-import java.util.ArrayList; // Import the arraylist class
-import java.util.Scanner; //Import the scanner class
 
-public class Books {
-    public static void main(String[] args){
-    
-    //Array List for books.
+
+
+	public static void main(String[] args) {
+//Fixed size array to store 5 book titles with methods to add, display, and search for books
+		addBook();
+        displayBook();
+        bookSearch();
+          //Array List for books.
     ArrayList<String> books = new ArrayList<>();
     Scanner keyboard = new Scanner(System.in);
     
@@ -119,21 +120,9 @@ int index = books.indexOf(searchInput);
 
 
 }
-    
-    }
-
-}
-
-
-
-	public static void main(String[] args) {
-//Fixed size array to store 5 book titles with methods to add, display, and search for books
-		addBook();
-        displayBook();
-        bookSearch();
+      
 
 	}
 
 }
-
 
