@@ -22,12 +22,29 @@ public class Bookstore {
         }
     }
     
-//Method to search for books
-    public static void bookSearch() {
+ //Method to search for books
+public static void bookSearch() {
+    Scanner input = new Scanner(System.in);
+    while (true) {
+        System.out.print("Enter the title of the book (or type 'exit' to quit): ");
+        String searchTitle = input.nextLine();
 
-        
+        if (searchTitle.equalsIgnoreCase("exit")) break;
+
+        boolean found = false;
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] != null && books[i].equalsIgnoreCase(searchTitle)) {
+                System.out.println("Book found: " + books[i]);
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Book not found.");
+        }
     }
-	
+}
 
 	public static void main(String[] args) {
 //Fixed size array to store 5 book titles with methods to add, display, and search for books
@@ -38,3 +55,4 @@ public class Bookstore {
 	}
 
 }
+
