@@ -1,4 +1,5 @@
 //Name: Jayla Craddock, Jeffrey Ortegon, Sahima Durrani, Ryan, Bahdan
+//Date 9/20/2025
 import java.util.Scanner;
 import java.util.ArrayList; // Import the arraylist class
 
@@ -125,4 +126,5 @@ int index = books.indexOf(searchInput);
 	}
 
 }
+
 
