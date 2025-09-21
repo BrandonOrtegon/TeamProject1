@@ -1,4 +1,4 @@
-//Name: Jayla Craddock, Jeffrey Ortegon, Sahima Durrani, Ryan, Bahdan Mikhailau
+//Name: Jayla Craddock, Jeffrey Ortegon, Sahima Durrani, Ryan Kostka, Bahdan Mikhailau
 //Date 9/20/2025
 import java.util.Scanner;
 import java.util.ArrayList; // Import the arraylist class
@@ -189,6 +189,7 @@ and the size of the dataset is known. ArrayList is well suited for
 "dynamic" datasets, which is a more realistic case because data is
 changing over time.
 */
+
 
 
 
