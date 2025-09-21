@@ -13,7 +13,9 @@ public class Bookstore {
             Scanner input = new Scanner(System.in);
             System.out.print("Enter a book into the store library: ");
             books[i] = input.nextLine();
-            System.out.println("You've entered: " + books[i] + " into the store library");
+            System.out.print("Now enter the genre of the book: ");
+            genres[i] = input.nextLine();
+            System.out.println("The book " + books[i] + " with the genre " + genres[i] + " has been entered in the library.");
         }
     }
 
@@ -25,27 +27,53 @@ public class Bookstore {
         }
     }
     
- //Method to search for books
+ // Method to search for books by either name or genre.
 public static void bookSearch() {
     Scanner input = new Scanner(System.in);
     while (true) {
-        System.out.print("Enter the title of the book (or type 'exit' to quit): ");
-        String searchTitle = input.nextLine();
-
-        if (searchTitle.equalsIgnoreCase("exit")) break;
-
-        boolean found = false;
-        for (int i = 0; i < books.length; i++) {
-            if (books[i] != null && books[i].equalsIgnoreCase(searchTitle)) {
-                System.out.println("Book found: " + books[i]);
-                found = true;
-                break;
-            }
-        }
-
-        if (!found) {
-            System.out.println("Book not found.");
-        }
+    	System.out.print("Do you want to search by 'name' or 'genre'? ");
+    	String searchChoice = input.nextLine();
+    	// Name searching
+    	if (searchChoice.equalsIgnoreCase("name")) {
+	        System.out.print("Enter the title of the book (or type 'exit' to quit): ");
+	        String searchTitle = input.nextLine();
+	
+	        if (searchTitle.equalsIgnoreCase("exit")) break;
+	
+	        boolean found = false;
+	        for (int i = 0; i < books.length; i++) {
+	            if (books[i] != null && books[i].equalsIgnoreCase(searchTitle)) {
+	                System.out.println("Book found: " + books[i]);
+	                found = true;
+	                break;
+	            }
+	        }
+	        if (!found) {
+	            System.out.println("Book not found.");
+	            break;
+	        }
+    	}
+    	
+    	// Genre searching
+    	if (searchChoice.equalsIgnoreCase("genre")) {
+	        System.out.print("Enter the genre of the book (or type 'exit' to quit): ");
+	        String searchGenre = input.nextLine();
+	
+	        if (searchGenre.equalsIgnoreCase("exit")) break;
+	
+	        boolean found = false;
+	        for (int i = 0; i < genres.length; i++) {
+	            if (genres[i] != null && books[i].equalsIgnoreCase(searchGenre)) {
+	                System.out.println("Book found: " + genres[i]);
+	                found = true;
+	                break;
+	            }
+	        }
+	        if (!found) {
+	            System.out.println("Book not found.");
+	            break;
+	        }
+    	}
     }
 }
 
@@ -126,5 +154,6 @@ int index = books.indexOf(searchInput);
 	}
 
 }
+
 
 
