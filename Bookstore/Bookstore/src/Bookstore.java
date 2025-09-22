@@ -43,9 +43,9 @@ public class Bookstore {
         Scanner keyboard = new Scanner(System.in);
         String input;
 
-        System.out.println("Welcome to the Book Database! Enter book titles. Type 'stop' to finish.");
+        System.out.println("Welcome to the Book Database! Enter book titles. Type 'stop' to exit.");
 
-        // Add books dynamically
+        // Add books 
         while (true) {
             System.out.print("Book title: ");
             input = keyboard.nextLine();
@@ -55,14 +55,14 @@ public class Bookstore {
 
         // Remove books
         while (true) {
-            System.out.print("Remove a book (or type 'stop' to skip): ");
+            System.out.print("Remove a book (or type 'stop' to exit): ");
             input = keyboard.nextLine();
             if (input.equalsIgnoreCase("stop")) break;
             dynamicBooks.remove(input);
         }
 
         // Display books
-        System.out.println("Your dynamic list of book titles:");
+        System.out.println("Your list of book titles:");
         for (String book : dynamicBooks) {
             System.out.println(book);
         }
@@ -165,6 +165,7 @@ and the size of the dataset is known. ArrayList is well suited for
 "dynamic" datasets, which is a more realistic case because data is
 changing over time.
 */
+
 
 
 
