@@ -1,17 +1,20 @@
 //Name: Jayla Craddock, Jeffrey Ortegon, Sahima Durrani, Ryan Kostka, Bahdan Mikhailau
 //Date 9/20/2025
 import java.util.Scanner;
-import java.util.ArrayList; // Import the arraylist class
+import java.util.ArrayList; 
 
+
+//Part 1: Array Implementation
+//Name: Jeffrey Ortegon, Sahima Durrani
 public class Bookstore {
-	static String[] books = new String[5];
-	static String[] genres = new String[5];
+    static String[] books = new String[5];
+    static String[] genres = new String[5];
     static int bookCount = 0;
-    
-//Method to add books
+
+    // Method to add books
     public static void addBook() {
-        for(int i = 0; i < books.length; i++) {
-            Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
+        for (int i = 0; i < books.length; i++) {
             System.out.print("Enter a book into the store library: ");
             books[i] = input.nextLine();
             System.out.print("Now enter the genre of the book: ");
@@ -20,144 +23,116 @@ public class Bookstore {
         }
     }
 
-//Method to display books
+    // Method to display books
     public static void displayBook() {
-    	System.out.println("Here are your books you've entered into the bookstore:");
-        for(int i = 0; i < books.length; i++) {
-            System.out.println("Book " + (i + 1) + ": " + books[i]);
+        System.out.println("\nHere are your books you've entered into the bookstore:");
+        for (int i = 0; i < books.length; i++) {
+            System.out.println("Book " + (i + 1) + ": " + books[i] + " (" + genres[i] + ")");
         }
     }
     
- // Method to search for books by either name or genre.
-public static void bookSearch() {
-    Scanner input = new Scanner(System.in);
-    while (true) {
-    	System.out.print("Do you want to search by 'name' or 'genre'? ");
-    	String searchChoice = input.nextLine();
-    	// Name searching
-    	if (searchChoice.equalsIgnoreCase("name")) {
-	        System.out.print("Enter the title of the book (or type 'exit' to quit): ");
-	        String searchTitle = input.nextLine();
-	
-	        if (searchTitle.equalsIgnoreCase("exit")) break;
-	
-	        boolean found = false;
-	        for (int i = 0; i < books.length; i++) {
-	            if (books[i] != null && books[i].equalsIgnoreCase(searchTitle)) {
-	                System.out.println("Book found: " + books[i]);
-	                found = true;
-	                break;
-	            }
-	        }
-	        if (!found) {
-	            System.out.println("Book not found.");
-	            break;
-	        }
-    	}
-    	
-    	// Genre searching
-    	if (searchChoice.equalsIgnoreCase("genre")) {
-	        System.out.print("Enter the genre of the book (or type 'exit' to quit): ");
-	        String searchGenre = input.nextLine();
-	
-	        if (searchGenre.equalsIgnoreCase("exit")) break;
-	
-	        boolean found = false;
-	        for (int i = 0; i < genres.length; i++) {
-	            if (genres[i] != null && books[i].equalsIgnoreCase(searchGenre)) {
-	                System.out.println("Book found: " + genres[i]);
-	                found = true;
-	                break;
-	            }
-	        }
-	        if (!found) {
-	            System.out.println("Book not found.");
-	            break;
-	        }
-    	}
-    }
-}
-
-
-
-
-	public static void main(String[] args) {
-//Fixed size array to store 5 book titles with methods to add, display, and search for books
-		addBook();
+    //Part 2: ArrayList Implementation
+    //Name: Jayla Craddock
+    public static void main(String[] args) {
+        addBook();
         displayBook();
         bookSearch();
-          //Array List for books.
-    ArrayList<String> books = new ArrayList<>();
-    Scanner keyboard = new Scanner(System.in);
-    
-    //Input from user.
-    String input;
-    
-    //Stop to help break out of loop.
-    String str1 = "stop";
 
-//Introduce the user to the database.
-System.out.println("Welcome to the Book Database! Enter a book title into the database. To stop type the word stop. ");
+        //ArrayList section
+        ArrayList<String> dynamicBooks = new ArrayList<>();
+        Scanner keyboard = new Scanner(System.in);
+        String input;
 
-//While loop for adding book titles.
-while (true){
-    System.out.println("Book title: " );
-    input = keyboard.nextLine();
+        System.out.println("\nWelcome to the Book Database! Enter book titles. Type 'stop' to finish.");
 
-    if(input.equalsIgnoreCase(str1)){
-        break;
+        // Add books dynamically
+        while (true) {
+            System.out.print("Book title: ");
+            input = keyboard.nextLine();
+            if (input.equalsIgnoreCase("stop")) break;
+            dynamicBooks.add(input);
+        }
+
+        // Remove books
+        while (true) {
+            System.out.print("Remove a book (or type 'stop' to skip): ");
+            input = keyboard.nextLine();
+            if (input.equalsIgnoreCase("stop")) break;
+            dynamicBooks.remove(input);
+        }
+
+        // Display books
+        System.out.println("\nYour dynamic list of book titles:");
+        for (String book : dynamicBooks) {
+            System.out.println(book);
+        }
+
+        // Sequential search in ArrayList
+        while (true) {
+            System.out.print("\nSearch a title in your database (or type 'stop' to exit): ");
+            String searchInput = keyboard.nextLine();
+            if (searchInput.equalsIgnoreCase("stop")) break;
+
+            int index = dynamicBooks.indexOf(searchInput);
+            if (index != -1) {
+                System.out.println("Book title: " + searchInput + " found at index: " + index);
+            } else {
+                System.out.println("Sorry, " + searchInput + " is not in the database.");
+            }
+        }
     }
 
-    books.add(input);
-}
+    // Part 3: Method to search for books by either name or genre.
+    //Name: Ryan Kostka
+    public static void bookSearch() {
+        Scanner input = new Scanner(System.in);
+        while (true) {
+            System.out.print("\nDo you want to search by 'name' or 'genre'? (type 'exit' to quit): ");
+            String searchChoice = input.nextLine();
 
-//While loop for removing book titles.
-while (true){
-    System.out.println("Remove a book: " );
-    input = keyboard.nextLine();
+            if (searchChoice.equalsIgnoreCase("exit")) break;
 
-    if(input.equalsIgnoreCase(str1)){
-        break;
+            // Name searching
+            if (searchChoice.equalsIgnoreCase("name")) {
+                System.out.print("Enter the title of the book: ");
+                String searchTitle = input.nextLine();
+
+                boolean found = false;
+                for (int i = 0; i < books.length; i++) {
+                    if (books[i] != null && books[i].equalsIgnoreCase(searchTitle)) {
+                        System.out.println("Book found: " + books[i] + " (" + genres[i] + ")");
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    System.out.println("Book not found.");
+                }
+            }
+
+            // Genre searching
+            else if (searchChoice.equalsIgnoreCase("genre")) {
+                System.out.print("Enter the genre of the book: ");
+                String searchGenre = input.nextLine();
+
+                boolean found = false;
+                for (int i = 0; i < genres.length; i++) {
+                    if (genres[i] != null && genres[i].equalsIgnoreCase(searchGenre)) {
+                        System.out.println("Book found: " + books[i] + " (" + genres[i] + ")");
+                        found = true;
+                    }
+                }
+                if (!found) {
+                    System.out.println("No books found for this genre.");
+                }
+            }
+        }
     }
-
-    books.remove(input);
-
-}
-
-
-//Display the book titles in the array.
-System.out.println("Your list of book titles: ");
-for (String book : books) {
-    System.out.println(book);
-}
-
-//Sequential search using a while loop
-while(true){
-    
-    System.out.println("Search a title in your database: ");
-String searchInput = keyboard.nextLine();
-
-int index = books.indexOf(searchInput);
-    if (index != -1){
-    System.out.println("Book title: " + searchInput + " found at index: " + index);
-    break;
-} else {
-    System.out.println("Sorry, " + searchInput + " is not in the database.");
-    System.out.println("Try again: ");
-    searchInput = keyboard.nextLine();
-   
-}
-
-
-}
-      
-
-	}
-
 }
 
 /*Part 4: Arrays vs. ArrayList 
 in handling static and dynamic datasets
+//Name: Bahdan Mikhailau
    
 - Arrays:
 
@@ -190,7 +165,5 @@ and the size of the dataset is known. ArrayList is well suited for
 "dynamic" datasets, which is a more realistic case because data is
 changing over time.
 */
-
-
 
 
