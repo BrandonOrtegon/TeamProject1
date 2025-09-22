@@ -25,7 +25,7 @@ public class Bookstore {
 
     // Method to display books
     public static void displayBook() {
-        System.out.println("\nHere are your books you've entered into the bookstore:");
+        System.out.println("Here are your books you've entered into the bookstore:");
         for (int i = 0; i < books.length; i++) {
             System.out.println("Book " + (i + 1) + ": " + books[i] + " (" + genres[i] + ")");
         }
@@ -43,7 +43,7 @@ public class Bookstore {
         Scanner keyboard = new Scanner(System.in);
         String input;
 
-        System.out.println("\nWelcome to the Book Database! Enter book titles. Type 'stop' to finish.");
+        System.out.println("Welcome to the Book Database! Enter book titles. Type 'stop' to finish.");
 
         // Add books dynamically
         while (true) {
@@ -62,14 +62,14 @@ public class Bookstore {
         }
 
         // Display books
-        System.out.println("\nYour dynamic list of book titles:");
+        System.out.println("Your dynamic list of book titles:");
         for (String book : dynamicBooks) {
             System.out.println(book);
         }
 
         // Sequential search in ArrayList
         while (true) {
-            System.out.print("\nSearch a title in your database (or type 'stop' to exit): ");
+            System.out.println("Search a title in your database (or type 'stop' to exit): ");
             String searchInput = keyboard.nextLine();
             if (searchInput.equalsIgnoreCase("stop")) break;
 
@@ -87,14 +87,14 @@ public class Bookstore {
     public static void bookSearch() {
         Scanner input = new Scanner(System.in);
         while (true) {
-            System.out.print("\nDo you want to search by 'name' or 'genre'? (type 'exit' to quit): ");
+            System.out.println("Do you want to search by 'name' or 'genre'? ");
             String searchChoice = input.nextLine();
 
             if (searchChoice.equalsIgnoreCase("exit")) break;
 
             // Name searching
             if (searchChoice.equalsIgnoreCase("name")) {
-                System.out.print("Enter the title of the book: ");
+                System.out.print("Enter the title of the book (or type 'exit' to quit):");
                 String searchTitle = input.nextLine();
 
                 boolean found = false;
@@ -165,5 +165,6 @@ and the size of the dataset is known. ArrayList is well suited for
 "dynamic" datasets, which is a more realistic case because data is
 changing over time.
 */
+
 
 
