@@ -5,6 +5,7 @@ import java.util.ArrayList; // Import the arraylist class
 
 public class Bookstore {
 	static String[] books = new String[5];
+	static String[] genres = new String[5];
     static int bookCount = 0;
     
 //Method to add books
@@ -189,7 +190,6 @@ and the size of the dataset is known. ArrayList is well suited for
 "dynamic" datasets, which is a more realistic case because data is
 changing over time.
 */
-
 
 
 
