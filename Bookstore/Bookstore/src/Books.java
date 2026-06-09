@@ -1,5 +1,5 @@
 //Name: Jayla Craddock
-//Date: 9/19/25
+//Date: 9/19/25 Updated on 6/9/2026
 //Assignment: Team Assignment Part 2
 import java.util.ArrayList; // Import the arraylist class
 import java.util.Scanner; //Import the scanner class
@@ -41,15 +41,21 @@ while (true){
         break;
     }
 
-    books.remove(input);
+    if (!books.remove(input)) {
+        System.out.println("Book not found in the list.");
+    }
 
 }
 
 
 //Display the book titles in the array.
 System.out.println("Your list of book titles: ");
-for (String book : books) {
-    System.out.println(book);
+if (books.isEmpty()) {
+    System.out.println("No books in the database.");
+} else {
+    for (String book : books) {
+        System.out.println(book);
+    }
 }
 
 //Sequential search using a while loop
@@ -64,16 +70,21 @@ int index = books.indexOf(searchInput);
     break;
 } else {
     System.out.println("Sorry, " + searchInput + " is not in the database.");
-    System.out.println("Try again: ");
+    System.out.println("Try again (or type 'stop' to exit): ");
     searchInput = keyboard.nextLine();
+    if (searchInput.equalsIgnoreCase(str1)) {
+        break;
+    }
    
 }
 
 
 }
+
+// Close scanner
+keyboard.close();
     
     }
 
 }
-
 
