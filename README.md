@@ -12,7 +12,7 @@ The first feature is that the program allows the user to enter in 5 books into t
 Here is what the first entered book looks like:
 <img width="743" height="112" alt="Image of first book entered in the database which is Cat in the Hat with the genre of Children" src="https://github.com/user-attachments/assets/5cc7d8f9-a2c8-4612-ab6a-32deb8800e29" />
 
-Here's what the rest of the titles look like:
+Here's how the rest of the titles look:
 <img width="770" height="361" alt="Image of the rest of the four book titles and genres entered that includes Harry Potter with a genre of Fantasy, Green Eggs and Ham with a genre of Children, A Bad Case of Stripes with a genre of Children and Pinkalicious with a genre of Children." src="https://github.com/user-attachments/assets/9c4c6e08-bea0-4155-a516-210eae625eb3" />
 
 
