@@ -1,6 +1,6 @@
 //Name: Jayla Craddock
 //Date: 9/19/25 Updated on 6/9/2026
-//Assignment: Team Assignment Part 2
+//Assignment: Team Assignment Part 1
 import java.util.ArrayList; // Import the arraylist class
 import java.util.Scanner; //Import the scanner class
 
